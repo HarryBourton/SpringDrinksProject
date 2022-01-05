@@ -37,7 +37,7 @@ public class Drink {
 	}
 
 	//For testing
-	public Drink(int id,String name, String manufacturer, int yearIntroduced, int volume, boolean isFizzy, boolean containsSugar) {
+	public Drink(int id, String name, String manufacturer, int yearIntroduced, int volume, boolean isFizzy, boolean containsSugar) {
 		super();
 		this.id = id;
 		this.name = name;
