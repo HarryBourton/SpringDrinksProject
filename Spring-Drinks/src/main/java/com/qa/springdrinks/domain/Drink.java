@@ -31,6 +31,10 @@ public class Drink {
 	
 	@NotNull(message = "Does the drink contain sugar?")
 	private boolean containsSugar;
+	
+	//Default constructor
+	public Drink() {
+	}
 
 	//For testing
 	public Drink(int id,String name, String manufacturer, int yearIntroduced, int volume, boolean isFizzy, boolean containsSugar) {
