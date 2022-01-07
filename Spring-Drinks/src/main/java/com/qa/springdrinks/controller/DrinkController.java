@@ -39,19 +39,19 @@ public class DrinkController {
 	}
 
 	// Read by id
-	@GetMapping("/readById/{}")
+	@GetMapping("/readById/{id}")
 	public ResponseEntity<Drink> readDrinkById(@PathVariable int id) {
 		return new ResponseEntity<Drink>(this.service.getById(id), HttpStatus.OK);
 	}
 
 	// Update
-	@PutMapping("/updateById/{}")
+	@PutMapping("/update/{id}")
 	public ResponseEntity<Drink> updateDrink(@PathVariable int id, @RequestBody Drink t) {
 		return new ResponseEntity<Drink>(this.service.update(id, t), HttpStatus.ACCEPTED);
 	}
 
 	// Delete
-	@DeleteMapping("/Delete/{}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Boolean> deleteDrink(@PathVariable int id) {
 		return (this.service.delete(id)) ? new ResponseEntity<Boolean>(HttpStatus.NO_CONTENT)
 				: new ResponseEntity<Boolean>(HttpStatus.NOT_FOUND);
