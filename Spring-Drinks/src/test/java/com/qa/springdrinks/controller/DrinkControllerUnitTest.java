@@ -1,8 +1,12 @@
 package com.qa.springdrinks.controller;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -32,7 +36,7 @@ public class DrinkControllerUnitTest {
 	private DrinkService service;
 
 	@Test
-	public void createTest() throws Exception {
+	public void testCreate() throws Exception {
 		Drink entry = new Drink("Pepsi", "PepsiCo.", 1893, 500, true, true);
 		String entryAsJSON = this.mapper.writeValueAsString(entry);
 
@@ -40,6 +44,19 @@ public class DrinkControllerUnitTest {
 
 		mvc.perform(post("/drink/create").contentType(MediaType.APPLICATION_JSON).content(entryAsJSON))
 				.andExpect(status().isCreated()).andExpect(content().json(entryAsJSON));
+	}
+	
+	@Test
+	public void testReadAll() throws Exception {
+		Drink entry = new Drink("Pepsi Cherry", "PepsiCo.", 1893, 1500, true, true);
+		List<Drink> list = new ArrayList<Drink>();
+		list.add(entry);
+		String entryAsJSON = this.mapper.writeValueAsString(list);
+		
+		Mockito.when(this.service.getAll()).thenReturn(list);
+		
+		mvc.perform(get("/drink/readAll").contentType(MediaType.APPLICATION_JSON).content(entryAsJSON))
+		.andExpect(status().isOk()).andExpect(content().json(entryAsJSON));
 	}
 
 }

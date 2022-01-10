@@ -1,6 +1,11 @@
 package com.qa.springdrinks.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -21,7 +26,7 @@ public class DrinkServiceUnitTest {
 	private DrinkRepo repo;
 	
 	@Test
-	public void createTest() {
+	public void testCreate() {
 		Drink input = new Drink("Coca-Cola Zero Sugar", "The Coca-Cola Company", 2005, 330, true, false);
 		Drink output = new Drink(1, "Coca-Cola Zero Sugar", "The Coca-Cola Company", 2005, 330, true, false);
 		
@@ -31,6 +36,17 @@ public class DrinkServiceUnitTest {
 		
 		Mockito.verify(this.repo, Mockito.times(1)).save(input);
 	}
-
+	
+	@Test
+	public void testGetAll() {
+		Drink drinkGetAll = new Drink(1, "Coca-Cola Zero Sugar", "The Coca-Cola Company", 2005, 1500, true, false);
+		List<Drink> list = new ArrayList<Drink>();
+		list.add(drinkGetAll);
+		
+		Mockito.when(this.repo.findAll()).thenReturn(list);
+		
+		assertEquals(list, this.service.getAll());
+		Mockito.verify(this.repo, Mockito.times(1)).findAll();
+	}
 
 }
