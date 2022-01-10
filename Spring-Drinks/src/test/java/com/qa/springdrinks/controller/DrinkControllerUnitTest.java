@@ -1,7 +1,9 @@
 package com.qa.springdrinks.controller;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -18,6 +20,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.springdrinks.domain.Drink;
 import com.qa.springdrinks.service.DrinkService;
@@ -57,6 +60,45 @@ public class DrinkControllerUnitTest {
 		
 		mvc.perform(get("/drink/readAll").contentType(MediaType.APPLICATION_JSON).content(entryAsJSON))
 		.andExpect(status().isOk()).andExpect(content().json(entryAsJSON));
+	}
+	
+	@Test
+	public void testReadById() throws Exception {
+		Drink entry = new Drink(3, "Pepsi Max", "PepsiCo.", 2000, 330, true, false);
+		String entryAsJSON = this.mapper.writeValueAsString(entry);
+		
+		Mockito.when(this.service.getById(3)).thenReturn(entry);
+		
+		mvc.perform(get("/drink/readById/3").contentType(MediaType.APPLICATION_JSON).content(entryAsJSON))
+		.andExpect(status().isOk()).andExpect(content().json(entryAsJSON));		
+	}
+	
+	@Test
+	public void testUpdate() throws Exception {
+		Drink entry = new Drink(4, "Pepsi Ginger", "PepsiCo.", 2016, 1000, true, false);
+		String entryAsJSON = this.mapper.writeValueAsString(entry);
+		
+		Mockito.when(this.service.update(4, entry)).thenReturn(entry);
+		
+		mvc.perform(put("/drink/update/4").contentType(MediaType.APPLICATION_JSON).content(entryAsJSON))
+		.andExpect(status().isAccepted()).andExpect(content().json(entryAsJSON));	
+	}
+	
+	@Test
+	public void testDelete() throws Exception {
+		Drink entry = new Drink(7, "Pepsi Caffeine-Free", "PepsiCo.", 2016, 330, true, false);
+		String entryAsJSON = this.mapper.writeValueAsString(entry);
+		
+		Mockito.when(this.service.delete(7)).thenReturn(true);
+		
+		mvc.perform(delete("/drink/delete/7").contentType(MediaType.APPLICATION_JSON).content(entryAsJSON))
+		.andExpect(status().isNoContent());
+		
+		Mockito.when(this.service.delete(8)).thenReturn(false);
+		
+		mvc.perform(delete("/drink/delete/8").contentType(MediaType.APPLICATION_JSON).content(entryAsJSON))
+		.andExpect(status().isNotFound());
+		
 	}
 
 }
