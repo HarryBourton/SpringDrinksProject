@@ -1,0 +1,1 @@
+INSERT INTO drink(contains_sugar, fizzy, manufacturer, name, volume, year_introduced) VALUES (0, 1, 'The Coca-Cola Company', 'Diet Coke', 330, 1982);
