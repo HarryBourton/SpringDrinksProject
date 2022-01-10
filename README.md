@@ -50,6 +50,22 @@ MYSQL DATA
 
 <img width="1280" alt="Drinks_Table_mysql" src="https://user-images.githubusercontent.com/93529811/148775728-ecf8094c-57e5-440d-b761-10fb5693d622.png">
 
+ENTITY TEST
+
+<img width="1280" alt="entity-test" src="https://user-images.githubusercontent.com/93529811/148809141-d47e9ba4-b734-4188-977e-7d98ce2f4656.png">
+
+SERVICE UNIT TEST
+
+<img width="1280" alt="service-unit-test" src="https://user-images.githubusercontent.com/93529811/148809223-c6e36fca-f58b-480d-bde2-15c143b95c23.png">
+
+CONTROLLER UNIT TEST
+
+<img width="1280" alt="controller-unit-test" src="https://user-images.githubusercontent.com/93529811/148809342-6dd94604-6fff-4163-a949-bdbdcd0587d5.png">
+
+CONTROLLER INTEGRATION TEST
+
+<img width="1280" alt="controller-integration-test" src="https://user-images.githubusercontent.com/93529811/148809419-da55592f-c89f-44d9-8c95-69743dc389a5.png">
+
 TESTING COVERAGE
 
 <img width="1280" alt="Screenshot 2022-01-10 at 16 57 24" src="https://user-images.githubusercontent.com/93529811/148806687-48be25ab-248e-4330-a0d0-18e3466580fe.png">
