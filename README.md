@@ -3,13 +3,13 @@ Why are we doing this?
 
 I am building a Spring Boot API that will allow users to add, read, update and delete drinks in a database. Specifically, it will be capable of handling a series of API calls using with postman.
 
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 How I expected the challenge to go
 
 I expected the project to be straightforward but challenging. I was confident in most areas but I predicted testing to be difficult.
 
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 What went well? / What didn't go as planned?
 
@@ -17,13 +17,13 @@ I feel I managed time fairly well. I dedicated the first day to planning which h
 
 I expected the project to be a challenge, especially around testing. This turned out to be correct. However, my mistakes throughout the project have served as learning experiences. Through trial and error I have gained a greater understanding of Java and Spring Boot.
 
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 Possible improvements for future revisions of the project
 
-I would like to enhance the functionality of the project by adding some custom queries and perhaps allow for PATCH requests. I would also like to add more entities to create a relational database. A long-term build could include a frontend.
+I would like to enhance the functionality of the project by adding some custom queries and perhaps allow for PATCH requests. I would also like to add more entities to create a relational database. I would like to push testing coverage past 80%. A long-term build could include a frontend.
 
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 POSTMAN REQUESTS:
 
 CREATE
@@ -50,6 +50,10 @@ MYSQL DATA
 
 <img width="1280" alt="Drinks_Table_mysql" src="https://user-images.githubusercontent.com/93529811/148775728-ecf8094c-57e5-440d-b761-10fb5693d622.png">
 
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+TESTING COVERAGE
+
+<img width="1280" alt="Screenshot 2022-01-10 at 16 57 24" src="https://user-images.githubusercontent.com/93529811/148806687-48be25ab-248e-4330-a0d0-18e3466580fe.png">
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 My Jira board: https://harrybourton.atlassian.net/jira/software/projects/SDP/boards/2 
